@@ -1,0 +1,4 @@
+Pentru ca o interfata sa fie considerata functionala trebuie sa aiba fix o singura metoda abstracta!
+
+Orice intrebare la care se poate raspunde cu true/false este un predicat.
+(o metoda care returneaza boolean)

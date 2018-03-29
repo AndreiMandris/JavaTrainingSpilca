@@ -1,0 +1,62 @@
+
+REST
+-
+
+SOAP
+-higher security enabled by WS-Security
+-if you need ACID Transactions over a service, you’re going to need SOAP.
+
+------------------------------------------------------------------------------
+SOLID
+
+S - Single responsability principle
+
+Every module/class should have responsability over a single part of the functionality provided by the software.
+A class should only have only one purpose.
+Make the code more decomposed/decoupled
+
+-----------------------------------------------------------------------------
+O - Open-closed principle
+
+Classes and functions should be open for extension(by inheritance) but close for modifications(without modifying the current code).  
+- first start by building an abstract class -> then provide concrete implementations to that one.
+
+-----------------------------------------------------------------------------
+L - Liskov substitution principle
+
+Subtypes must be substitutable for their base types.
+Ability to replace any instance of a parent class with an instance f one of its child classes without negative side effects.
+Bird.fly
+
+Duck.fly -> can fly
+
+Ostrich.fly -> it can't fly, so when you are trying to pass this concrete class implementation when the fly behaviour will be called (Bird.fly) and exception will be thrown.
+			-> introduces new behaviour into existing code by writing a descendent to a base class.
+------------------------------------------------------------------------------
+
+I - Interface segregation principle
+
+Classes that implement interfaces shouldn't be forced to implement methods they don't use => Use small interfaces!
+
+Ex: Don't use: 
+interface Stream(){
+	public void read();
+	public void write();	
+}
+
+Because a readonly device won't be able to implement this.
+
+Segregate methods:
+interface ReadOnlyStream(){
+	public void read();
+}
+
+interface WriteOnlyStream(){
+	public void write();
+}
+
+------------------------------------------------------------------------------
+D - Dependency Inversion principle
+
+-depend on abstractions not on concrete
+abstractions should not depend on the details whereas the details should depend on abstractions
