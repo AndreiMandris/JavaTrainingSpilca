@@ -1,8 +1,8 @@
 package enums;
 
-public enum Countries {
+public enum Countries { //an enum has a limited number of instances
 
-    ROMANIA, SPAIN("Madrid"), FRANCE("Paris");
+    ROMANIA, SPAIN("Madrid"), FRANCE("Paris"); //these are the only instances of Countries
 
     Countries() { //constructors are by default private
     }
