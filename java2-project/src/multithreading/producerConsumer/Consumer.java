@@ -8,21 +8,23 @@ public class Consumer extends Thread {
 
     @Override
     public void run() {
-        try {
-            while (true) {
-                synchronized (Main.list) {
-                    if (!Main.list.isEmpty()) {
-                        int number = Main.list.get(0);
-                        Main.list.remove(0);
-                        System.out.println("Extracted number is: " + number);
-                        Main.list.notifyAll();
-                    } else {
+
+        while (true) {
+            synchronized (Main.list) {
+                if (!Main.list.isEmpty()) {
+                    int number = Main.list.get(0);
+                    Main.list.remove(0);
+                    System.out.println("Extracted number is: " + number);
+                    Main.list.notifyAll();
+                } else {
+                    try {
                         Main.list.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
+
     }
 }
